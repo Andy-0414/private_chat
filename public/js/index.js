@@ -8,12 +8,14 @@ const boom = document.getElementById("boom")
 const socket = io()
 
 var myCode = null
+var myName = null
 
 go.addEventListener("click", e => {
     document.getElementById("app").style.display = "none"
     document.getElementById("chat").style.display = "flex"
 
-    myCode = codeInput.value
+    myCode = codeInput.value.split(":")[0]
+    myName = codeInput.value.split(":")[1] || "NONAME"
     socket.emit("joinRoom", {
         roomCode: myCode
     })
@@ -22,12 +24,13 @@ codeInput.addEventListener("keypress", e => {
     if (e.keyCode == 13) go.click()
 })
 chatInput.addEventListener("keypress", e => {
-    if (chatInput.value.trim()  && e.keyCode == 13) {
+    if (chatInput.value.trim() && e.keyCode == 13) {
         var div = document.createElement("div")
         var alignDiv = document.createElement("div")
         div.classList.add("chatBox__item")
 
         div.innerText = chatInput.value
+        alignDiv.innerText = myName
         alignDiv.style.textAlign = "right"
         alignDiv.appendChild(div)
 
@@ -35,6 +38,7 @@ chatInput.addEventListener("keypress", e => {
         chatBox.scrollTop = chatBox.scrollHeight
 
         socket.emit("getMsg", {
+            name: myName,
             msg: chatInput.value,
             roomCode: myCode
         })
@@ -44,8 +48,10 @@ chatInput.addEventListener("keypress", e => {
 clear.addEventListener("click", e => {
     chatBox.innerHTML = ""
 })
-boom.addEventListener("click",e=>{
-    socket.emit("boomRoom",{roomCode:myCode})
+boom.addEventListener("click", e => {
+    socket.emit("boomRoom", {
+        roomCode: myCode
+    })
 })
 socket.on("boomRoom", data => {
     window.location = ""
@@ -58,6 +64,7 @@ socket.on("getMsg", data => {
     div.innerText = data.msg
     alignDiv.style.textAlign = "left"
     alignDiv.appendChild(div)
+    alignDiv.appendChild(document.createTextNode(data.name))
 
     chatBox.appendChild(alignDiv)
     chatBox.scrollTop = chatBox.scrollHeight

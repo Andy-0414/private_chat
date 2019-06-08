@@ -25,11 +25,12 @@
 #logo {
     color: white;
     font-size: 5em;
-    font-weight: bold
+    font-weight: bold;
+    text-align: center;
 }
 
 #codeInput {
-    width: 200px;
+    width: 300px;
 
     background: none;
     border: none;
@@ -88,6 +89,7 @@
 
     font-size: 1.2em;
     color: white;
+    overflow-y: scroll;
 }
 
 #chatInput__box {
