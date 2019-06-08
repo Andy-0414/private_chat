@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./assets/margeleT_lgo.png">
 
     <link rel="stylesheet" href="./css/index.css">
     <script src="./assets/socket.io.js"></script>
@@ -14,21 +15,23 @@
 
 <body>
     <div id="app">
-        <div id="logo">PRIVATE CHAT</div>
-        <div id="input__box">
-            <input type="text" id="codeInput" placeholder="ROOM:NAME">
-            <button id="go">▷</button>
-        </div>
+        <img id="logo" src="./assets/margeleT_slogan.png">
+        <input type="text" id="codeInput" placeholder="key">
+        <input type="text" id="nameInput" placeholder="alias">
+        <button id="go">ENTER</button>
     </div>
     <div id="chat">
         <div id="tools">
-            <button id="boom" style="color: #AA0000;">BOOM</button>
-            <button id="clear" style="color: #00AA00">CLEAR</button>
+            <button id="boom">
+                <img src="./assets/bomb@3x.png" alt=""> BOOM</button>
+            <button id="clear">
+                <img src="./assets//noun_eraser_38402@3x.png" alt=""> CLEAR</button>
         </div>
         <div id="chatBox">
         </div>
         <div id="chatInput__box">
-            <input type="text" id="chatInput">
+            <input type="text" id="chatInput" placeholder="type to talk..">
+            <img src="./assets/margeleT_lgo.png" alt="" id="chatSend">
         </div>
     </div>
     <script src="./js/index.js"></script>
