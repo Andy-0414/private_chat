@@ -38,8 +38,11 @@ body{
     width: 500px;
     margin-bottom: 80px;
 }
-#logo img{
-    width: 200px;
+#logo-mobile{
+    width: 40%;
+    margin-bottom: 80px;
+    
+    display: none;
 }
 
 #codeInput,
@@ -83,7 +86,7 @@ body{
 #chat {
     position: absolute;
     top: 0;
-    width: 80%;
+    width: 100%;
     max-width: 1000px;
     height: 100vh;
 
@@ -201,4 +204,24 @@ body{
 ::-webkit-scrollbar-button {
     background-color: #d32f2f;
     height: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    #logo {
+        display: none;
+    }
+    #logo-mobile{
+        display: block;
+    }
+    #chat{
+        padding: 10px;
+    }
+    #tools{
+        padding: 10px;
+        height: auto;
+    }
+    #chatInput__box{
+        padding: 10px;
+        height: 60px;
+    }
 }
