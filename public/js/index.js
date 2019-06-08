@@ -6,6 +6,9 @@ const chatBox = document.getElementById("chatBox")
 const chatSend = document.getElementById("chatSend")
 const clear = document.getElementById("clear")
 const boom = document.getElementById("boom")
+const boomAlert = document.getElementById("boomAlert")
+const boomNo = document.getElementById("boomNo")
+const boomYes = document.getElementById("boomYes")
 const app = document.getElementById("app")
 const chat = document.getElementById("chat")
 
@@ -68,6 +71,14 @@ clear.addEventListener("click", e => {
     chatBox.innerHTML = ""
 })
 boom.addEventListener("click", e => {
+    boomAlert.style.display = "flex"
+
+})
+boomNo.addEventListener("click", e => {
+    boomAlert.style.display = "none"
+})
+boomYes.addEventListener("click", e => {
+    boomAlert.style.display = "none"
     socket.emit("boomRoom", {
         roomCode: myCode
     })

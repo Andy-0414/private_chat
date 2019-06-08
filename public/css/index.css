@@ -41,7 +41,7 @@ body{
 #logo-mobile{
     width: 40%;
     margin-bottom: 80px;
-    
+
     display: none;
 }
 
@@ -188,7 +188,43 @@ body{
     font-weight: bold;
 }
 
+#boomAlert{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    height: 100vh;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 100;
+
+    display: none;
+}
+#boomAlert button {
+    border: none;
+    background: none;
+    outline: none;
+    width: 200px;
+
+    font-weight: normal;
+    color: white;
+    font-size: 2em;
+
+    padding: 10px;
+    margin: 20px;
+}
+#boomAlert button:hover{
+    font-weight: bold;
+}
+#boomAlert h1{
+    font-size: 4em;
+    color: black;
+}
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -223,5 +259,9 @@ body{
     #chatInput__box{
         padding: 10px;
         height: 60px;
+    }
+    #boomAlert div {
+        display: flex;
+        flex-direction: column;
     }
 }
