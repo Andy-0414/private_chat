@@ -17,9 +17,8 @@ const socket = io()
 var myCode = null
 var myName = null
 
-window.addEventListener('load', function () {
-    document.body.style.height = (document.documentElement.clientHeight + 5) + 'px';
-    window.scrollTo(0, 1);
+window.addEventListener('resize', function () {
+    document.body.style.height = document.documentElement.clientHeight + 'px';
 }, false);
 
 go.addEventListener("click", e => {

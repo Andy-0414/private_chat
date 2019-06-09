@@ -9,6 +9,8 @@
     font-family: 'Roboto','Spoqa Han Sans','Sans-serif';
 }
 body{
+    width: 100vw;
+    height: 100vh;
     position: relative;
     display: flex;
     justify-content: center;
