@@ -17,6 +17,11 @@ const socket = io()
 var myCode = null
 var myName = null
 
+window.addEventListener('load', function () {
+    document.body.style.height = (document.documentElement.clientHeight + 5) + 'px';
+    window.scrollTo(0, 1);
+}, false);
+
 go.addEventListener("click", e => {
     myCode = codeInput.value
     myName = nameInput.value
