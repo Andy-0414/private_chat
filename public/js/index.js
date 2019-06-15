@@ -16,6 +16,7 @@ const socket = io()
 
 var myCode = null
 var myName = null
+var prevUser = null
 
 window.addEventListener('resize', function () {
     document.body.style.height = document.documentElement.clientHeight + 'px';
@@ -25,19 +26,24 @@ go.addEventListener("click", e => {
     myCode = codeInput.value
     myName = nameInput.value
     if (myCode && myName) {
-        app.style.opacity = 0
-        chat.style.zIndex = 20
-        chat.style.opacity = 1
-        chat.style.transform = "scale(1)"
-
         socket.emit("joinRoom", {
+            name: myName,
             roomCode: myCode
         })
-        chatInput.addEventListener("blur", e => {
-            chatInput.focus()
-        })
+
     }
 })
+socket.on("joinRoom", data => {
+    app.style.opacity = 0
+    chat.style.zIndex = 20
+    chat.style.opacity = 1
+    chat.style.transform = "scale(1)"
+    chatInput.focus()
+    chatInput.addEventListener("blur", e => {
+        chatInput.focus()
+    })
+})
+
 var gotoChat = (e) => {
     if (e.keyCode == 13) go.click()
 }
@@ -130,14 +136,16 @@ socket.on("getMsg", data => {
     var alignDiv = document.createElement("div")
     div.classList.add("chatBox__item")
     div.innerText = data.msg
-    console.log(nameList)
     div.style.backgroundColor = nameList[colorIndex].color
 
-    var name = document.createElement("div")
-    name.classList.add("name")
-    name.innerText = data.name
-    name.style.color = nameList[colorIndex].color
-    alignDiv.appendChild(name)
+    if (data.name != prevUser){
+        var name = document.createElement("div")
+        name.classList.add("name")
+        name.innerText = data.name
+        name.style.color = nameList[colorIndex].color
+        alignDiv.appendChild(name)
+        prevUser = data.name
+    }
 
     alignDiv.classList.add("notMe")
     alignDiv.style.textAlign = "left"
