@@ -30,7 +30,6 @@ go.addEventListener("click", e => {
             name: myName,
             roomCode: myCode
         })
-
     }
 })
 socket.on("joinRoom", data => {
