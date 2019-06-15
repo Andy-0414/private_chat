@@ -65,6 +65,8 @@ chatSend.addEventListener("click", e => {
         div.style.backgroundColor = "black"
         alignDiv.appendChild(div)
 
+        prevUser = myName
+
         chatBox.appendChild(alignDiv)
         chatBox.scrollTop = chatBox.scrollHeight
 
