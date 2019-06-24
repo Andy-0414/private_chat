@@ -18,6 +18,12 @@ var myCode = null
 var myName = null
 var prevUser = null
 
+//test
+app.style.opacity = 0
+chat.style.zIndex = 20
+chat.style.opacity = 1
+chat.style.transform = "scale(1)"
+//
 window.addEventListener('resize', function () {
     document.body.style.height = document.documentElement.clientHeight + 'px';
 }, false);
