@@ -267,30 +267,3 @@ body{
         flex-direction: column;
     }
 }
-
-#chatEmot{
-    position: relative;
-    
-    width: 5ch;
-    height: 100%;
-    margin-left: 20px;
-}
-#chatEmot:hover .face:nth-child(1){
-}
-#chatEmot:hover .face:nth-child(2){
-    top: -100%;
-}
-.face{
-    position: absolute;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 100px;
-
-    background-color: #d32f2f;
-    color: white;
-    font-weight: bold;
-}
