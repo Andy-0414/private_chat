@@ -1,9 +1,11 @@
 {
-    "apps": [{
-        "name": "private_chat",
-        "script": "app.js",
-        "autorestart": true,
-        "watch": false,
-        "max_memory_restart": "1G"
-    }]
+	"apps": [
+		{
+			"name": "private_chat",
+			"script": "app.js",
+			"autorestart": true,
+			"watch": false,
+			"exec_mode": "cluster"
+		}
+	]
 }
